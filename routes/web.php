@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminDashboardController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -8,6 +10,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', [App\Http\Controllers\AdminDashboardController::class, 'index'])->name('dashboard');
-
-
+Route::get('/admin', [AdminDashboardController::class, 'index'])->name('dashboard');
+ 

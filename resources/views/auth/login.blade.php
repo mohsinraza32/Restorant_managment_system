@@ -20,13 +20,13 @@
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror   
                     </div>
                     <div class="mb-3">
                       <input type="password" placeholder="Password" aria-label="Password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
                       @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $message }}</strong>  
                                     </span>
                                 @enderror
                     </div>
