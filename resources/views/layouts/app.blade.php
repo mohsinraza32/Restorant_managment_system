@@ -13,8 +13,8 @@
 </head>
 <body>
     <div id="app">
-    <div class="min-height-300 bg-primary position-absolute w-100"></div>
-        @auth
+      @auth
+      <div class="min-height-300 bg-primary position-absolute w-100"></div>
         @include('includes.sidebar')
         @endauth
 
