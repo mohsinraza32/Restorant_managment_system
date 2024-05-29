@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminDashboardController;
 
@@ -10,9 +11,9 @@ Auth::routes();
 
 Route::get('/admin', [AdminDashboardController::class, 'index'])->name('dashboard');
  
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+
+Route::get('/', [BannerController::class, 'showDynamicBanner'])->name('home');
+
 
 Route::get('/about', function () {
     return view('frontend.about');
@@ -26,6 +27,16 @@ Route::get('/menu', function () {
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
-Route::get('/booking', function () {
-    return view('frontend.booking');
-})->name('booking');
+
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/banners', [BannerController::class, 'index'])->name('banners.index');
+    Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
+    Route::post('/banners', [BannerController::class, 'store'])->name('banners.store');
+    Route::get('/banners/{banner}/edit', [BannerController::class, 'edit'])->name('banners.edit');
+    Route::put('/banners/{banner}', [BannerController::class, 'update'])->name('banners.update');
+    Route::delete('/banners/{banner}', [BannerController::class, 'destroy'])->name('banners.destroy');
+});
