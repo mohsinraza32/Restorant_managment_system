@@ -26,3 +26,6 @@ Route::get('/menu', function () {
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
+Route::get('/booking', function () {
+    return view('frontend.booking');
+})->name('booking');
