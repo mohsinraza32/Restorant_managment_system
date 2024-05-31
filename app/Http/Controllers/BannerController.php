@@ -94,7 +94,7 @@ class BannerController extends Controller
     public function showDynamicBanner()
     {
         $homeBanner = Banner::first();
-        return view('frontend.home', ['homeBanner' => $homeBanner]);
+        return $homeBanner;
     }
     
 

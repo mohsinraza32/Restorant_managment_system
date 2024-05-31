@@ -5,22 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Banner extends Model
+class Menu extends Model
 {
     use HasFactory;
-    protected $table = 'banners';
-
+    protected $table = "menu";
     protected $fillable = [
         'title',
         'description',
-        'button_text',
-        'button_link',
         'image_path',
     ];
 
-   
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+
 }
