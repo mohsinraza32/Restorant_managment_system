@@ -5,6 +5,9 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\OurServicesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OurMasterChefController;
+use App\Http\Controllers\ReservationController;
 
 
 
@@ -29,6 +32,11 @@ Route::get('/menu', function () {
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
+Route::get('/chef', function () {
+    return view('frontend.chef');
+})->name('chef');
+
+
 
 
 
@@ -52,10 +60,21 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/our-services/{service}', [OurServicesController::class, 'update'])->name('our-services.update');
     Route::delete('/our-services/{service}', [OurServicesController::class, 'destroy'])->name('our-services.destroy');
 // our menu
-Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
-Route::get('/menu/create', [MenuController::class, 'create'])->name('menu.create');
-Route::post('/menu', [MenuController::class, 'store'])->name('menu.store');
-Route::get('/menu/{service}/edit', [MenuController::class, 'edit'])->name('our-services.edit');
-Route::put('/our-services/{service}', [MenuController::class, 'update'])->name('our-services.update');
-Route::delete('/our-services/{service}', [MenuController::class, 'destroy'])->name('our-services.destroy');
+Route::get('/our-menu', [MenuController::class, 'index'])->name('our-menu.index');
+Route::get('/our-menu/create', [MenuController::class, 'create'])->name('our-menu.create');
+Route::post('/our-menu', [MenuController::class, 'store'])->name('our-menu.store');
+Route::get('/our-menu/{menu}/edit', [MenuController::class, 'edit'])->name('our-menu.edit');
+Route::put('/our-menu/{menu}', [MenuController::class, 'update'])->name('our-menu.update');
+Route::delete('/our-menu/{menu}', [MenuController::class, 'destroy'])->name('our-menu.destroy');
+
+// our chef
+Route::get('/our-chef', [OurMasterChefController::class, 'index'])->name('our-chef.index');
+Route::get('/our-chef/create', [OurMasterChefController::class, 'create'])->name('our-chef.create');
+Route::post('/our-chef', [OurMasterChefController::class, 'store'])->name('our-chef.store');
+Route::get('/our-chef/{chef}/edit', [OurMasterChefController::class, 'edit'])->name('our-chef.edit');
+Route::put('/our-chef/{chef}', [OurMasterChefController::class, 'update'])->name('our-chef.update');
+Route::delete('/our-chef/{chef}', [OurMasterChefController::class, 'destroy'])->name('our-chef.destroy');
+// reservation
+Route::get('/reservation', [ReservationController::class, 'create'])->name('reservations.create');
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservations.store');
 });

@@ -57,14 +57,7 @@
                         <a href="{{route('about')}}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
                         <a href="{{route('service')}}" class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}">Service</a>
                         <a href="{{route('menu')}}" class="nav-item nav-link {{ request()->routeIs('menu') ? 'active' : '' }}">Menu</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="booking.html" class="dropdown-item">Booking</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
+                        <a href="{{route('chef')}}" class="nav-item nav-link {{ request()->routeIs('chef') ? 'active' : '' }}">Our Team</a>
                         <a href="{{route('contact')}}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
                     </div>
                     <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
